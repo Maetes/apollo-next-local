@@ -1,0 +1,36 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource mysql {
+  provider = "mysql"
+  url      = "mysql://USER369473_cl:Mixer!112233@rngs.lima-db.de:3306/db_369473_11"
+}
+
+model Project {
+  beschreibung String?
+  id           Int     @default(autoincrement()) @id
+  name         String  @unique
+  url          String
+}
+
+model Task {
+  beschreibung String?
+  code         String?
+  id           Int     @default(autoincrement()) @id
+  name         String  @unique
+}
+
+model Tech {
+  beschreibung String?
+  id           Int     @default(autoincrement()) @id
+  name         String  @unique
+}
+
+model User {
+  email    String  @unique
+  id       Int     @default(autoincrement()) @id
+  nachname String
+  password String
+  title    String?
+}
